@@ -1,8 +1,8 @@
 name: Generate GitHub Stats
 
 on:
-  schedule: # Ejecuta cada 12 horas
-    - cron: "0 */12 * * *"
+  schedule:
+    - cron: "0 */12 * * *"  # cada 12 horas
   workflow_dispatch:
   push:
     branches:
@@ -16,12 +16,11 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      # 1️⃣ Clonar repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Create folder for images
-        run: mkdir -p dist
-
+      # 2️⃣ Descargar stats directamente a la raíz
       - name: Download GitHub stats images
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -29,17 +28,18 @@ jobs:
           # Stats de commits y contribuciones privadas
           curl -H "Authorization: token $GH_TOKEN" \
             "https://github-readme-stats.vercel.app/api?username=rauuul-dev&count_private=true&theme=dracula&hide_border=false" \
-            -o dist/stats.svg
+            -o stats.svg
 
           # Stats de lenguajes principales
           curl -H "Authorization: token $GH_TOKEN" \
             "https://github-readme-stats.vercel.app/api/top-langs?username=rauuul-dev&layout=compact&langs_count=5&theme=dracula&hide_border=false" \
-            -o dist/languages.svg
+            -o languages.svg
 
+      # 3️⃣ Subir los SVG a la branch output
       - name: Push stats to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
-          build_dir: dist
+          build_dir: .  # ahora subimos desde el root
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
