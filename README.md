@@ -2,15 +2,28 @@
 <h1 align="center">Hola, soy <a href="https://rauuul.xyz">RauuulDev</a> 👋</h1>
 </div>
 <img src="https://i.imgur.com/YABwUVV.png">
-###
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rauuul-dev&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=rauuul-dev&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="languages graph"  />
-</div>
+## Sobre mi
+
+- 🧑‍💻 15 años
+- 🎓 Actualmente cursando 4º de la ESO
+- 💡 Apasionado por la programación desde pequeño
+- ✏️ 🏫 Estudiante en la academia de programación [Codelearn](https://codelearn.es/)
+- 🔍 Siempre con ganas de aprender, experimentar y mejorar un poco más cada día.
+<br>
+
+<p align="center">
+  <!-- Card de estadísticas -->
+  <img width="48%" height="200" src="https://github-readme-stats-theta-umber-95.vercel.app/api?username=RauuulDev&show_icons=true&count_private=true&theme=radical&locale=es&bg_color=30,e96443,904e95&title_color=ffffff&text_color=ffffff&icon_color=f8d847" />
+
+  <!-- Card de lenguajes -->
+  <img width="48%" height="200" style="object-fit: cover;" src="https://github-readme-stats-theta-umber-95.vercel.app/api/top-langs/?username=RauuulDev&layout=compact&card_width=400&theme=radical&locale=es&bg_color=30,e96443,904e95&title_color=ffffff&text_color=ffffff" />
+</p>
 
 
-###
+
+
+
 
 <div align="left">
   <img src="https://cdn.simpleicons.org/android/3DDC84" height="30" alt="android logo" />
