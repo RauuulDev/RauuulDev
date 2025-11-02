@@ -1,7 +1,7 @@
 name: Generate GitHub Stats
 
 on:
-  schedule: # ejecuta cada 12 horas
+  schedule: # Ejecuta cada 12 horas
     - cron: "0 */12 * * *"
 
   workflow_dispatch:
@@ -21,35 +21,20 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install github-readme-stats
-        run: npm install github-readme-stats
-
-      - name: Generate stats images
+      - name: Download GitHub stats images
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           mkdir -p dist
-          npx github-readme-stats \
-            --username rauuul-dev \
-            --count_private true \
-            --theme dracula \
-            --hide_border false \
-            --disable_animations false \
-            --output dist/stats.svg
+          # Stats de commits y contribuciones privadas
+          curl -H "Authorization: token $GH_TOKEN" \
+            "https://github-readme-stats.vercel.app/api?username=rauuul-dev&count_private=true&theme=dracula&hide_border=false" \
+            -o dist/stats.svg
 
-          npx github-readme-stats \
-            --username rauuul-dev \
-            --top-langs \
-            --layout compact \
-            --theme dracula \
-            --hide_border false \
-            --langs_count 5 \
-            --output dist/languages.svg
+          # Stats de lenguajes principales
+          curl -H "Authorization: token $GH_TOKEN" \
+            "https://github-readme-stats.vercel.app/api/top-langs?username=rauuul-dev&layout=compact&langs_count=5&theme=dracula&hide_border=false" \
+            -o dist/languages.svg
 
       - name: Push stats to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
